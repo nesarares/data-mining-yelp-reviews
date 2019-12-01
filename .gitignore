@@ -1,0 +1,5 @@
+/yelp_dataset
+/yelp_photos
+*/node_modules
+*/.idea
+*/.vscode
