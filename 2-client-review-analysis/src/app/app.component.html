@@ -1,0 +1,47 @@
+<nb-layout>
+  <nb-layout-column [nbSpinner]="isLoading" nbSpinnerSize="giant" nbSpinnerStatus="primary"
+    nbSpinnerMessage="Please wait...">
+    <div class="container">
+      <section>
+        <h2>Select a restaurant</h2>
+        <app-restaurants (restaurantClick)="onRestaurantClick($event)"></app-restaurants>
+      </section>
+
+      <section>
+        <h2>Select the rating</h2>
+        <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="black" size="60px" readonly="false" (rate)="onSelectStars($event)"></star-rating>
+      </section>
+
+      <div class="results">
+        <div class="graphs">
+          <section [class.hidden]="!hasData">
+            <h2>Most common words</h2>
+            <div id="container" class="canvas"></div>
+          </section>
+
+          <section [class.hidden]="!hasData">
+            <h2>Most common ngrams</h2>
+            <div id="containerNgrams" class="canvas"></div>
+          </section>
+        </div>
+
+        <div id="interesting-reviews" *ngIf="hasData">
+          <section>
+            <h2>Most useful review</h2>
+            <app-review [review]="interestingReviews[0]"></app-review>
+          </section>
+
+          <section>
+            <h2>Funniest review</h2>
+            <app-review [review]="interestingReviews[1]"></app-review>
+          </section>
+
+          <section>
+            <h2>Coolest review</h2>
+            <app-review [review]="interestingReviews[2]"></app-review>
+          </section>
+        </div>
+      </div>
+    </div>
+  </nb-layout-column>
+</nb-layout>

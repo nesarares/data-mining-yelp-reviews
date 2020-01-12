@@ -1,0 +1,41 @@
+.container {
+	max-width: 1500px;
+	margin: 0 auto;
+}
+
+h2 {
+	margin-top: 0;
+}
+
+section {
+	margin-bottom: 30px;
+}
+
+.canvas {
+	width: 100%;
+	height: 400px;
+	box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
+	border-radius: 0.25rem;
+	overflow: hidden;
+}
+
+.results {
+	width: 100%;
+	max-width: 100%;
+	display: grid;
+	grid-template-areas: "graphs interesting-reviews";
+	grid-template-columns: 55% auto;
+	column-gap: 50px;
+}
+
+.graphs {
+	grid-area: graphs;
+}
+
+#interesting-reviews {
+	grid-area: interesting-reviews;
+}
+
+.hidden {
+	display: none;
+}

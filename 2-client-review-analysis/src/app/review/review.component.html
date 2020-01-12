@@ -1,0 +1,18 @@
+<nb-card>
+	<nb-card-body>
+		<p class="stars-date">
+			<span class="stars">
+				<span>{{ review.stars }} ⭐</span>
+				<span>{{ review.useful }} 👍</span>
+				<span>{{ review.funny }} 😂</span> 
+				<span>{{ review.cool }} 😎</span>
+			</span>
+			<span class="date">{{ review.date }}</span>
+		</p>
+		<div class="text">
+			<p [class.visible-all]="showMore">{{ review.text }}</p>
+			<a (click)="showMore = true" *ngIf="!showMore">Read more</a>
+			<a (click)="showMore = false" *ngIf="showMore">Read less</a>
+		</div>
+	</nb-card-body>
+</nb-card>

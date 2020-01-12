@@ -1,0 +1,11 @@
+<div class="restaurants" *ngIf="restaurants">
+	<nb-card class="restaurant" *ngFor="let restaurant of restaurants"
+		(click)="restaurantClick.emit(restaurant._id); selectedId = restaurant._id"
+		[class.selected]="restaurant._id === selectedId">
+		<nb-card-body>
+			<h3>{{ restaurant.name }}</h3>
+			<p><strong>{{ restaurant.address }}</strong> - {{ restaurant.city }}</p>
+			<p><strong>{{ restaurant.stars }}</strong> ⭐ - {{ restaurant.review_count }} reviews</p>
+		</nb-card-body>
+	</nb-card>
+</div>

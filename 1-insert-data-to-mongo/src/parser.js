@@ -12,6 +12,15 @@ import { db } from "./db";
 let buffer = [];
 let total = 0;
 
+export const copyReviews = async () => {
+  buffer = await db
+    .collection("reviews")
+    .find({ business_id: "eZcCFV-8X91ZSnmB9807bw" })
+    .toArray();
+  console.log("Length: " + buffer.length);
+  dumpBuffer("reviews_test");
+};
+
 const dumpBuffer = async collectionName => {
   await db.collection(collectionName).insertMany(buffer);
   total += buffer.length;

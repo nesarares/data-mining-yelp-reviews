@@ -1,5 +1,6 @@
 /yelp_dataset
 /yelp_photos
+/restaurantreviews
 */node_modules
 */.idea
 */.vscode

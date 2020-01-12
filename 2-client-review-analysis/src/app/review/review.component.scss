@@ -1,0 +1,52 @@
+nb-card {
+	margin-bottom: 0;
+}
+
+.stars-date {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.stars {
+		font-size: 18px;
+		font-weight: bold;
+
+		span {
+			padding-right: 10px;
+			padding-left: 10px;
+			border-right: 1px solid rgb(200, 200, 200);
+
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				padding-right: 0;
+				border-right: none;
+			}
+		}
+	}
+
+	.date {
+		color: rgb(59, 59, 59);
+	}
+}
+
+.text {
+	p {
+		max-height: 60px;
+		overflow: hidden;
+
+		&.visible-all {
+			max-height: unset;
+		}
+	}
+
+	a {
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
