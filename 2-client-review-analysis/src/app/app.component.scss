@@ -44,8 +44,9 @@ section {
   display: flex;
   flex-direction: row;
 
-  section {
-    width: 50%;
+  .predict {
+    flex-grow: 1;
+    margin-left: 100px;
   }
 
   .inline {
