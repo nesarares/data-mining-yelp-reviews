@@ -8,7 +8,9 @@ import {
   NbCardModule,
   NbLayoutModule,
   NbSpinnerModule,
-  NbThemeModule
+  NbThemeModule,
+  NbInputModule,
+  NbButtonModule
 } from "@nebular/theme";
 import { RatingModule } from "ng-starrating";
 
@@ -30,7 +32,9 @@ import { ReviewComponent } from "./review/review.component";
     FormsModule,
     HttpClientModule,
     NbSpinnerModule,
-    RatingModule
+    RatingModule,
+    NbInputModule,
+    NbButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

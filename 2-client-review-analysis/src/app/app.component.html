@@ -7,10 +7,24 @@
         <app-restaurants (restaurantClick)="onRestaurantClick($event)"></app-restaurants>
       </section>
 
-      <section>
-        <h2>Select the rating</h2>
-        <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="black" size="60px" readonly="false" (rate)="onSelectStars($event)"></star-rating>
-      </section>
+      <div class="columns">
+        <section>
+          <h2>Select the rating</h2>
+          <star-rating value="0" totalstars="5" checkedcolor="orange" uncheckedcolor="black" size="60px"
+            readonly="false" (rate)="onSelectStars($event)"></star-rating>
+        </section>
+
+        <section>
+          <h2>Predict rating</h2>
+          <div class="inline">
+            <textarea nbInput name="review-text" id="review-text" rows="3" placeholder="Type your review..."
+              [(ngModel)]="reviewText"></textarea>
+            <button nbButton [nbSpinner]="isLoadingPrediction" (click)="predict()"
+              [disabled]="!businessId || isLoadingPrediction">Submit</button>
+            <span class="prediction" *ngIf="prediction">{{prediction}} ⭐!</span>
+          </div>
+        </section>
+      </div>
 
       <div class="results">
         <div class="graphs">

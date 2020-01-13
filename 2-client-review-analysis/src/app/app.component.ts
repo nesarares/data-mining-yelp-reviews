@@ -15,8 +15,11 @@ export class AppComponent implements OnInit {
 
   selectedStars;
   businessId;
+  prediction;
+  reviewText;
 
   isLoading = false;
+  isLoadingPrediction = false;
   hasData = false;
   interestingReviews: Review[];
 
@@ -42,8 +45,8 @@ export class AppComponent implements OnInit {
   }
 
   clearContainers() {
-    document.querySelector('div#container').innerHTML = "";
-    document.querySelector('div#containerNgrams').innerHTML = "";
+    document.querySelector("div#container").innerHTML = "";
+    document.querySelector("div#containerNgrams").innerHTML = "";
   }
 
   async drawBagOfWords(
@@ -101,5 +104,23 @@ export class AppComponent implements OnInit {
   async onSelectStars(event) {
     this.selectedStars = event.newValue;
     await this.fetchData();
+  }
+
+  async predict() {
+    try {
+      this.prediction = null;
+      this.isLoadingPrediction = true;
+      const resp = await this.http
+        .post<{ stars: number }>(
+          `${environment.baseUrl}/predict?business_id=${this.businessId}`,
+          { text: this.reviewText }
+        )
+        .toPromise();
+      this.prediction = resp.stars;
+    } catch (e) {
+      console.error(e);
+    } finally {
+      this.isLoadingPrediction = false;
+    }
   }
 }
